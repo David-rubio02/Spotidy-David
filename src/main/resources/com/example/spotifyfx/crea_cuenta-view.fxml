@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="506.0" prefWidth="553.0" spacing="15.0" styleClass="primary_color" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spotifyfx.Crea_cuentaController">
+    <children>
+        <ImageView fitHeight="105.0" fitWidth="374.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@img/spoty.png" />
+            </image>
+        </ImageView>
+        <VBox prefHeight="348.0" prefWidth="553.0" spacing="10.0">
+            <children>
+                <HBox alignment="CENTER" prefHeight="53.0" prefWidth="600.0">
+                    <children>
+                        <Label fx:id="usuario_label" prefHeight="24.0" prefWidth="101.0" text="Usuario:" textFill="#1ed760">
+                            <font>
+                                <Font name="System Bold" size="19.0" />
+                            </font>
+                        </Label>
+                  <Pane prefHeight="28.0" prefWidth="44.0" />
+                        <TextField fx:id="usuario" prefHeight="26.0" prefWidth="307.0" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="50.0" prefWidth="600.0">
+                    <children>
+                        <Label fx:id="contrasenya_label" prefHeight="24.0" prefWidth="141.0" text="Contraseña:" textFill="#1ed760">
+                            <font>
+                                <Font name="System Bold" size="19.0" />
+                            </font>
+                        </Label>
+                  <Pane prefHeight="26.0" prefWidth="83.0" />
+                        <PasswordField fx:id="contrasenya" prefHeight="26.0" prefWidth="230.0" />
+                    </children>
+                </HBox>
+            <HBox alignment="CENTER" prefHeight="53.0" prefWidth="600.0">
+               <children>
+                  <Label fx:id="email_label" prefHeight="24.0" prefWidth="83.0" text="Email:" textFill="#1ed760">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Label>
+                  <Pane prefHeight="28.0" prefWidth="66.0" />
+                  <TextField fx:id="email" prefHeight="26.0" prefWidth="307.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="53.0" prefWidth="600.0">
+               <children>
+                  <Label fx:id="genero_label" prefHeight="24.0" prefWidth="103.0" text="Genero:" textFill="#1ed760">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Label>
+                  <Pane prefHeight="29.0" prefWidth="44.0" />
+                  <TextField fx:id="genero" prefHeight="26.0" prefWidth="307.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="53.0" prefWidth="600.0">
+               <children>
+                  <Label fx:id="fnac_label" prefHeight="24.0" prefWidth="212.0" text="Fecha Nacimiento:" textFill="#1ed760">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Label>
+                  <Pane prefHeight="29.0" prefWidth="0.0" />
+                  <DatePicker fx:id="fnac" prefHeight="26.0" prefWidth="238.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="53.0" prefWidth="600.0">
+               <children>
+                  <Label fx:id="pais_label" prefHeight="24.0" prefWidth="68.0" text="Pais:" textFill="#1ed760">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Label>
+                  <Pane prefHeight="29.0" prefWidth="76.0" />
+                  <TextField fx:id="pais" prefHeight="26.0" prefWidth="307.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="53.0" prefWidth="600.0">
+               <children>
+                  <Label fx:id="codpostal_label" prefHeight="24.0" prefWidth="171.0" text="Codigo Postal:" textFill="#1ed760">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Label>
+                  <Pane prefHeight="29.0" prefWidth="29.0" />
+                  <TextField fx:id="codpostal" prefHeight="26.0" prefWidth="250.0" />
+               </children>
+            </HBox>
+            <Pane prefHeight="28.0" prefWidth="553.0" />
+                <VBox alignment="CENTER" prefHeight="84.0" prefWidth="600.0">
+                    <children>
+                        <Button mnemonicParsing="false" onAction="#crear" prefHeight="52.0" prefWidth="69.0" styleClass="upgrade-button" stylesheets="@css/style.css" text="Crear" textFill="#1ed760">
+                            <font>
+                                <Font name="System Bold" size="15.0" />
+                            </font>
+                        </Button>
+                        <Pane prefHeight="17.0" prefWidth="600.0" />
+                        <Button mnemonicParsing="false" onAction="#volver" style="-fx-background-color: transparent;" text="Ya tengo cuenta" textFill="#d7d7d7" underline="true">
+                            <font>
+                                <Font name="System Italic" size="13.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+    </children>
+</VBox>

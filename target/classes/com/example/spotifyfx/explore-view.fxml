@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="1315.0" styleClass="primary_color" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spotifyfx.ExploreController">
+    <left>
+        <VBox prefHeight="890.0" prefWidth="237.0" spacing="20.0" styleClass="secondary-color" stylesheets="@css/style.css" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@img/ic_more.png" />
+                    </image>
+                    <VBox.margin>
+                        <Insets left="20.0" top="20.0" />
+                    </VBox.margin>
+                </ImageView>
+                <VBox prefHeight="156.0" prefWidth="212.0" stylesheets="@css/style.css">
+                    <children>
+                        <HBox onMouseClicked="#principal" alignment="CENTER" prefHeight="50.0" prefWidth="200.0" spacing="20.0">
+                            <children>
+                                <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@img/ic_home2.png" />
+                                    </image>
+                                </ImageView>
+                                <Label prefHeight="31.0" prefWidth="96.0" text="Home" textFill="#b9b5b5">
+                                    <font>
+                                        <Font name="System Bold" size="26.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" spacing="20.0" styleClass="selected">
+                            <children>
+                                <Button fx:id="explorar" mnemonicParsing="false" prefHeight="55.0" prefWidth="172.0" style="-fx-background-color: transparent;" text="Explorar" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="20.0" />
+                                    </font>
+                                    <graphic>
+                                        <ImageView fitHeight="41.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@img/ic_browse2.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                            </children>
+                        </HBox>
+                        <HBox prefHeight="49.0" prefWidth="114.0" spacing="20.0">
+                            <children>
+                                <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="202.0" style="-fx-background-color: transparent;" text="Radio" textFill="#a1a1a1">
+                                    <font>
+                                        <Font name="System Bold" size="22.0" />
+                                    </font>
+                                    <graphic>
+                                        <ImageView fitHeight="27.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@img/ic_radio.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+                <VBox prefHeight="242.0" prefWidth="212.0">
+                    <children>
+                        <Label prefHeight="60.0" prefWidth="207.0" text="TU LIBRERIA" textFill="#1ed760">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                        <Label prefHeight="28.0" prefWidth="192.0" stylesheets="@css/style.css" text="Para ti" textFill="#a1a1a1">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="DEFAULT" />
+                            </cursor>
+                        </Label>
+                        <Label prefHeight="28.0" prefWidth="192.0" text="Playlist" textFill="#a1a1a1">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                        </Label>
+                        <Label prefHeight="28.0" prefWidth="192.0" text="Favoritas" textFill="#a1a1a1">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                        </Label>
+                        <Label prefHeight="28.0" prefWidth="192.0" text="Albums" textFill="#a1a1a1">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                        </Label>
+                        <Label prefHeight="28.0" prefWidth="192.0" text="Artistas" textFill="#a1a1a1">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                        </Label>
+                        <Label prefHeight="28.0" prefWidth="192.0" text="Podcast" textFill="#a1a1a1">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                        </Label>
+                    </children>
+                    <padding>
+                        <Insets left="20.0" right="20.0" />
+                    </padding>
+                </VBox>
+                <Label prefHeight="60.0" prefWidth="207.0" text="PLAYLIST" textFill="#1ed760">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets left="20.0" />
+                    </VBox.margin>
+                </Label>
+                <Pane prefHeight="130.0" prefWidth="237.0" VBox.vgrow="ALWAYS" />
+                <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" spacing="5.0" styleClass="top-border" stylesheets="@css/style.css">
+                    <children>
+                        <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="38.0" style="-fx-background-color: transparent;">
+                            <graphic>
+                                <ImageView fitHeight="35.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@img/ic_add.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Label prefHeight="28.0" prefWidth="192.0" text="Nueva Playlist" textFill="#a1a1a1">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </left>
+    <center>
+        <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0" BorderPane.alignment="CENTER">
+            <children>
+                <HBox alignment="CENTER_LEFT" prefHeight="56.0" prefWidth="1078.0" spacing="20.0">
+                    <children>
+                  <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="38.0" prefWidth="285.0" styleClass="search-container">
+                     <children>
+                        <ImageView fitHeight="34.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/ic_search.png" />
+                           </image>
+                        </ImageView>
+                        <TextField fx:id="buscador" prefHeight="39.0" prefWidth="232.0" promptText="Buscador" style="-fx-background-color: transparent;">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </HBox>
+                  <Button onAction="#buscar" mnemonicParsing="false" prefHeight="34.0" prefWidth="93.0" styleClass="search-container" text="Buscar" />
+                        <Pane prefHeight="56.0" prefWidth="354.0" HBox.hgrow="ALWAYS" />
+                        <HBox alignment="CENTER" prefHeight="56.0" prefWidth="338.0" spacing="10.0">
+                            <children>
+                                <ImageView fitHeight="49.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@img/user.png" />
+                                    </image>
+                                </ImageView>
+                                <Label fx:id="nom_usu" prefHeight="31.0" prefWidth="132.0" text="Iniciar Sesion" textFill="WHITE">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                                <MenuButton mnemonicParsing="false" prefHeight="47.0" prefWidth="72.0" style="-fx-background-color: transparent;">
+                                    <items>
+                                        <MenuItem mnemonicParsing="false">
+                                            <graphic>
+                                                <MenuButton mnemonicParsing="false" popupSide="LEFT" style="-fx-background-color: transparent;" text="Idioma">
+                                                    <items>
+                                                        <MenuItem mnemonicParsing="false" onAction="#id_aleman" text="Aleman" />
+                                                        <MenuItem mnemonicParsing="false" onAction="#id_espanol" text="Español" />
+                                                        <MenuItem mnemonicParsing="false" onAction="#id_ingles" text="Ingles" />
+                                                        <MenuItem mnemonicParsing="false" onAction="#id_italiano" text="Italiano" />
+                                                        <MenuItem mnemonicParsing="false" onAction="#id_frances" text="Frances" />
+                                                    </items>
+                                                    <graphic>
+                                                        <ImageView fx:id="bandera" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@img/espana.png" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic>
+                                                </MenuButton>
+                                            </graphic>
+                                        </MenuItem>
+                                        <MenuItem mnemonicParsing="false">
+                                            <graphic>
+                                                <MenuButton fx:id="bt_calidad" mnemonicParsing="false" popupSide="LEFT" style="-fx-background-color: transparent;" text="Calidad">
+                                                    <items>
+                                                        <MenuItem mnemonicParsing="false" onAction="#id_auto" text="Automatico" />
+                                                        <MenuItem mnemonicParsing="false" onAction="#id_baja" text="Baja" />
+                                                        <MenuItem mnemonicParsing="false" onAction="#id_normal" text="Normal" />
+                                                        <MenuItem mnemonicParsing="false" onAction="#id_alta" text="Alta" />
+                                                        <MenuItem mnemonicParsing="false" onAction="#id_muyAlta" text="Muy Alta" />
+                                                    </items>
+                                                    <graphic>
+                                                        <Label fx:id="calidad_lbl" textFill="#cdc8c8" />
+                                                    </graphic>
+                                                </MenuButton>
+                                            </graphic>
+                                        </MenuItem>
+                                        <MenuItem mnemonicParsing="false">
+                                            <graphic>
+                                                <MenuButton fx:id="bt_tipo_descarga" mnemonicParsing="false" popupSide="LEFT" style="-fx-background-color: transparent;" text="Tipo Descarga">
+                                                    <items>
+                                                        <MenuItem mnemonicParsing="false" onAction="#id_auto_descarga" text="Automatico" />
+                                                        <MenuItem mnemonicParsing="false" onAction="#id_baja_descarga" text="Baja" />
+                                                        <MenuItem mnemonicParsing="false" onAction="#id_normal_descarga" text="Normal" />
+                                                        <MenuItem mnemonicParsing="false" onAction="#id_alta_descarga" text="Alta" />
+                                                        <MenuItem mnemonicParsing="false" onAction="#id_muyAlta_descarga" text="Muy Alta" />
+                                                    </items>
+                                                    <graphic>
+                                                        <Label fx:id="tipo_descarga_lbl" />
+                                                    </graphic>
+                                                </MenuButton>
+                                            </graphic>
+                                        </MenuItem>
+                                    </items>
+                                    <graphic>
+                                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@img/ajustes.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </MenuButton>
+                                <Button mnemonicParsing="false" onAction="#salida" prefHeight="40.0" prefWidth="39.0" style="-fx-background-color: transparent;">
+                                    <graphic>
+                                        <ImageView fitHeight="37.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@img/salida.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                            </children>
+                        </HBox>
+                    </children>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </HBox>
+                <ScrollPane fx:id="scroll" prefHeight="500.0" prefWidth="1027.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+                    <content>
+                        <VBox prefHeight="648.0" prefWidth="1325.0" spacing="10.0">
+                            <children>
+                                <Label prefHeight="30.0" prefWidth="159.0" text="Resultados:" textFill="#1ed760">
+                                    <font>
+                                        <Font size="25.0" />
+                                    </font>
+                                </Label>
+                                <ScrollPane fitToWidth="true" minViewportHeight="270.0" prefHeight="263.0" prefWidth="900.0" style="-fx-background-color: transparent;">
+                                    <content>
+                                        <HBox fx:id="AzarContainer" prefHeight="4.0" prefWidth="0.0" spacing="30.0" />
+                                    </content>
+                                    <VBox.margin>
+                                        <Insets />
+                                    </VBox.margin></ScrollPane>
+                            </children>
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                        </VBox>
+                    </content>
+                    <padding>
+                        <Insets left="20.0" />
+                    </padding>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </ScrollPane>
+            </children>
+        </VBox>
+    </center>
+    <bottom>
+        <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="362.0" spacing="15.0">
+                    <children>
+                        <ImageView fx:id="img_reproductor" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                        <VBox alignment="CENTER" prefHeight="100.0" prefWidth="187.0">
+                            <children>
+                                <Label fx:id="nombre_reproductor" prefHeight="16.0" prefWidth="192.0" text="No hay cancion" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="descripcion_reproductor" prefHeight="16.0" prefWidth="192.0" text="seleccionada" textFill="WHITE">
+                                    <font>
+                                        <Font size="16.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </VBox>
+                        <Button mnemonicParsing="false" onAction="#love" style="-fx-background-color: transparent;">
+                            <graphic>
+                                <ImageView fx:id="corazon" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@img/ic_love.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                    </children>
+                </HBox>
+                <Pane prefHeight="100.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
+                <VBox alignment="CENTER" prefHeight="100.0" prefWidth="741.0">
+                    <children>
+                        <HBox alignment="CENTER" prefHeight="54.0" prefWidth="741.0" spacing="20.0">
+                            <children>
+                                <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="31.0" style="-fx-background-color: transparent;">
+                                    <graphic>
+                                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@img/ic_shuffle.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="31.0" style="-fx-background-color: transparent;">
+                                    <graphic>
+                                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@img/ic_skip_to_start.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="btplay" mnemonicParsing="false" prefHeight="40.0" prefWidth="31.0" style="-fx-background-color: transparent;">
+                                    <graphic>
+                                        <ImageView fitHeight="47.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@img/ic_play.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="31.0" style="-fx-background-color: transparent;">
+                                    <graphic>
+                                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@img/ic_end.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="31.0" style="-fx-background-color: transparent;">
+                                    <graphic>
+                                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@img/ic_repeat.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                            </children>
+                        </HBox>
+                        <HBox>
+                            <children>
+                                <Label text="0:00" textFill="WHITE">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                                <Slider prefHeight="21.0" prefWidth="652.0" HBox.hgrow="ALWAYS" />
+                                <Label text="2:37" textFill="WHITE">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+                <Pane prefHeight="100.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
+                    <children>
+                        <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
+                            <graphic>
+                                <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@img/ic_devices.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
+                            <graphic>
+                                <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@img/ic_playlist.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
+                            <graphic>
+                                <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@img/ic_volume.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                    </children>
+                </HBox>
+            </children>
+        </HBox>
+    </bottom>
+</BorderPane>
