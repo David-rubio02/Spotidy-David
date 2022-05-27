@@ -1,9 +1,6 @@
 package com.example.spotifyfx;
 
-import com.example.spotifyfx.modelos.Cancion;
-import com.example.spotifyfx.modelos.Configuracion;
-import com.example.spotifyfx.modelos.PlayList;
-import com.example.spotifyfx.modelos.Podcast;
+import com.example.spotifyfx.modelos.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -34,7 +31,9 @@ public class ExploreController implements Initializable {
     public Label descripcion_reproductor;
     public String busqueda;
     public HBox AzarContainer;
-    List<Cancion> encontradas;
+    public HBox ArtistasContainer;
+    List<Cancion> CancionesEncontradas;
+    List<Artista> ArtistasEncontrados;
 
     @FXML
     public ScrollPane scroll;
@@ -52,6 +51,7 @@ public class ExploreController implements Initializable {
     Cancion cancion;
     Podcast podcast;
     PlayList playlist1;
+    Artista artista;
 
     Image espana = new Image("com/example/spotifyfx/img/espana.png");
     Image ingles = new Image("com/example/spotifyfx/img/ingles.png");
@@ -157,13 +157,15 @@ public class ExploreController implements Initializable {
     public void buscar(ActionEvent actionEvent) {
         busqueda=buscador.getText();
 
-        encontradas = new ArrayList<>(getCanciones());
+        CancionesEncontradas = new ArrayList<>(getCanciones());
+        ArtistasEncontrados = new ArrayList<>(getArtistas());
         fxmlLoader = new FXMLLoader(getClass().getResource("login-view.fxml"));
 
         try {
             AzarContainer.getChildren().removeAll(AzarContainer.getChildren());
+            ArtistasContainer.getChildren().removeAll(ArtistasContainer.getChildren());
 
-            for (Cancion song : encontradas) {
+            for (Cancion song : CancionesEncontradas) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("cancion-view.fxml"));
 
@@ -210,6 +212,52 @@ public class ExploreController implements Initializable {
                 focused(vBox);
             }
 
+            for (Artista art : ArtistasEncontrados) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("artista-view.fxml"));
+
+                VBox vBox = fxmlLoader.load();
+                ArtistaController artistaController = fxmlLoader.getController();
+                artistaController.setArtistas(art);
+
+                ArtistasContainer.getChildren().add(vBox);
+
+                vBox.onMouseClickedProperty().set(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent mouseEvent) {
+                        corazon.setVisible(true);
+                        corazon.setImage(corazonblanco);
+
+                        artista.setNombre(artista.getNombre());
+                        artista.setImagen(artista.getImagen());
+
+                        img_reproductor.setImage(new Image(artista.getImagen()));
+                        nombre_reproductor.setText(artista.getNombre());
+                        descripcion_reproductor.setText("");
+
+                        try {
+                            Statement stmt = baseDEDatos().createStatement();
+                            ResultSet rs = stmt.executeQuery("select usuario_id \n" +
+                                    "from guarda_cancion gc\n" +
+                                    "inner join cancion c on c.id = gc.cancion_id\n" +
+                                    "where cancion_id = (select id from cancion where titulo =" + '"' + cancion.getNombre() + '"' + ");");
+
+                            while (rs.next()) {
+                                int usuario_id = rs.getInt("usuario_id");
+                                if (usuario_id == c1.getUsuario()) {
+                                    corazon.setImage(corazonrojo);
+                                    fav_on = true;
+                                    break;
+                                }
+                            }
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+                focused(vBox);
+            }
+
         }catch (IOException ex){
             ex.printStackTrace();
         }
@@ -232,6 +280,30 @@ public class ExploreController implements Initializable {
                 cancion.setArtista(rs.getString("nombre"));
                 cancion.setCover(rs.getString("ruta"));
                 ls.add(cancion);
+            }
+
+            baseDEDatos().close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return ls;
+    }
+
+    public List<Artista> getArtistas(){
+        List<Artista> ls = new ArrayList<>();
+
+        try {
+            Statement stmt = baseDEDatos().createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT a.nombre, a.imagen\n" +
+                    "FROM artista a\n" +
+                    "where a.nombre like '%" + busqueda + "%';");
+
+            while (rs.next()){
+                artista = new Artista();
+                artista.setNombre(rs.getString("nombre"));
+                artista.setImagen(rs.getString("imagen"));
+                ls.add(artista);
             }
 
             baseDEDatos().close();

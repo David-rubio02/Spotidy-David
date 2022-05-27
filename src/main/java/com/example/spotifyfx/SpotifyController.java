@@ -306,8 +306,7 @@ public class SpotifyController implements Initializable {
                 focused(vbox);
             }
 
-            for (Artista art : artistas)
-            {
+            for (Artista art : artistas) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("artista-view.fxml"));
 
